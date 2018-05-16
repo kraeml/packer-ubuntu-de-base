@@ -34,6 +34,9 @@
         - wget
         - curl
         - vim
+        - vimhelp-de
+        - zsh
+        - nano
         - screen
         - htop
         - tree
@@ -87,12 +90,12 @@
          regexp: '^caption always'
          line: 'caption always "%{rw} * | %H * $LOGNAME | %{bw}%c %D | %{-}%-Lw%{rw}%50>%{rW}%n%f* %t %{-}%+Lw%<"'
 
-    - name: configure bashrc with screen
-      blockinfile:
-        path: /home/vagrant/.bashrc
-        block: |
-           if [ "$TERM" != "screen" ] && [ "$SSH_CONNECTION" != "" ]; then
-             /usr/bin/screen -ls sshscreen || /usr/bin/screen -dmS sshscreen
-             echo "SSH no active"
-             /usr/bin/screen -S sshscreen -D -RR  && exit
-           fi
+    #- name: configure bashrc with screen
+    #  blockinfile:
+    #    path: /home/vagrant/.bashrc
+    #    block: |
+    #       if [ "$TERM" != "screen" ] && [ "$SSH_CONNECTION" != "" ]; then
+    #         /usr/bin/screen -ls sshscreen || /usr/bin/screen -dmS sshscreen
+    #         echo "SSH no active"
+    #         /usr/bin/screen -S sshscreen -D -RR  && exit
+    #       fi
