@@ -17,6 +17,23 @@
           rom: 'rebase origin/master'
       tags:
         - git
+    - role: gantsign.oh-my-zsh
+      users:
+        - username: "{{ ansible_user_id }}"
+          oh_my_zsh:
+            theme: agnoster
+          plugins:
+            - git
+            - python
+            - pip
+            - command-not-found
+            - docker
+            - dotenv
+            - git-flow
+            - systemd
+            - ubuntu
+            - vagrant
+            - virtualenv
 
   tasks:
     - name: "Install needed packages"
@@ -34,8 +51,8 @@
         - wget
         - curl
         - vim
-        - vimhelp-de
         - zsh
+        - fonts-powerline
         - nano
         - screen
         - htop
