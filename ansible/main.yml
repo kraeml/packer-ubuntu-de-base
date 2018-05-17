@@ -100,12 +100,18 @@
       tags:
         - git
 
-    - name: configure screen
+    - name: Set login shell for {{ ansible_user_id }}
+      become: yes
+      user:
+        name: '{{ ansible_user_id }}'
+        shell: '/bin/bash'
+
+    - name: Configure screen
       become: yes
       lineinfile:
-         path: /etc/screenrc
-         regexp: '^caption always'
-         line: 'caption always "%{rw} * | %H * $LOGNAME | %{bw}%c %D | %{-}%-Lw%{rw}%50>%{rW}%n%f* %t %{-}%+Lw%<"'
+        path: /etc/screenrc
+        regexp: '^caption always'
+        line: 'caption always "%{rw} * | %H * $LOGNAME | %{bw}%c %D | %{-}%-Lw%{rw}%50>%{rW}%n%f* %t %{-}%+Lw%<"'
 
     #- name: configure bashrc with screen
     #  blockinfile:
