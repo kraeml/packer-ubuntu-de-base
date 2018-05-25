@@ -57,6 +57,7 @@
         - screen
         - htop
         - tree
+        - rsync
         - sqlite
         #- lvm2
         - python3
