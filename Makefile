@@ -1,3 +1,6 @@
+file=../ENV_VARS
+token=`cat $(file)`
+export ATLAS_TOKEN = $(token)
 builds/virtualbox-ubuntu1804.box: virtualbox-ovf/box.ovf
 	#source ../ENV_VARS
 	packer build -force packer-ubuntu-de-base.json
